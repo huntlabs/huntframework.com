@@ -1,0 +1,10 @@
+{
+	"name": "collied.org",
+	"description": "collied website.",
+	"copyright": "Copyright © 2016, putao dlang team",
+	"authors": [ "putao.com dlang team." ],
+    "license": "BSD",
+	"dependencies": {
+		"hunt": "~>0.0.3"
+	}
+}
