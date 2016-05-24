@@ -2,20 +2,31 @@ import std.stdio;
 import std.functional;
 import hunt.web.application;
 import collie.socket;
+import hunt.web.view;
 
-void hello(Request, Response res)
+enum RESOURCES_FILE_PATH ="./";
+
+void resources(Request req, Response res)
 {
-    res.setContext("hello world");
-    res.setHeader("content-type","text/html;charset=UTF-8");
-    res.done();
+	import std.path;
+	auto file_path = absolutePath(RESOURCES_FILE_PATH) ~ req.Header.path();
+	auto ext = extension(file_path);///.css
+	trace("file_path:", file_path);
+    //res.setHeader("Content-Type","text/html;charset=UTF-8");
+    import hunt.utils.string;
+    res.setHeader("Content-Type",mimeContentType( ext));
+    res.done(file_path);
 }
+
 
 void main()
 {
-	globalLogLevel(LogLevel.error);
+	globalLogLevel(LogLevel.trace);
 	WebApplication app = new WebApplication();
-	app.addRouter("GET", "/hello", toDelegate(&hello));
+	app.setRouterConfig(new ConfigSignalModule("config/router.conf"));
+	app.addRouter("GET", "/resources/{path:.*}", toDelegate(&resources));
 	app.bind(8080);
 	app.run();
 	
 }
+

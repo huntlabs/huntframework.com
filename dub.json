@@ -4,7 +4,10 @@
 	"copyright": "Copyright © 2016, putao dlang team",
 	"authors": [ "putao.com dlang team." ],
     "license": "BSD",
+    "stringImportPaths": [ "./resources/views" ],
 	"dependencies": {
-		"hunt": "~>0.0.3"
+		"hunt": {
+			"path":"../hunt"
+		}
 	}
 }
