@@ -24,7 +24,7 @@ void main()
 	globalLogLevel(LogLevel.trace);
 	WebApplication app = new WebApplication();
 	app.setRouterConfig(new ConfigSignalModule("config/router.conf"));
-	app.addRouter("GET", "/resources/{path:.*}", toDelegate(&resources));
+	app.addRouter("GET", "/resources/statics/{path:.*}", toDelegate(&resources));
 	app.bind(8080);
 	app.run();
 	
