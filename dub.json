@@ -1,7 +1,7 @@
 {
-	"name": "collied.org",
-	"description": "collied website.",
-	"copyright": "Copyright © 2016, putao dlang team",
+	"name": "huntframework.com",
+	"description": "hunt framework and collie website.",
+	"copyright": "Copyright © 2016, putao.com",
 	"authors": [ "putao.com dlang team." ],
     "license": "BSD",
     "stringImportPaths": [ "./resources/views" ],
